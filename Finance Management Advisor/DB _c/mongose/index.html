@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch Data Based on Risk Level</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0; /* Light background color */
+    }
+    select {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 12px; /* Increase padding */
+      font-size: 16px; /* Increase font size */
+      box-sizing: border-box;
+    }
+    .container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      padding-top: 20px;
+    margin-top: 20px ;
+      border-radius: 5px;
+      width: 600px;
+      background-color: #fff; /* White background color */
+    }
+    .button {
+      background-color: #007bff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .button:hover {
+      background-color: #ccc; /* Darker gray background color on hover */
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2; /* Light gray background color for table header */
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0; /* Optional: Set a background color */
+      font-family: "Poppins", sans-serif; /* Add your preferred font family */
+  }
+
+  .box {
+      width: 400px; /* Adjust the width as needed */
+      padding: 20px;
+      background-color: #fff; /* Optional: Set a background color */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  }
+   a:hover {
+      text-decoration: underline;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
+  a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+  }
+
+  /* Styling for navbar */
+  .navbar {
+      background-color: #000;
+      color: #fff; /* Text color for navbar links */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 9999; /* Ensure navbar stays on top of other content */
+      display: flex;
+      justify-content: space-between; /* Align items to the left and right */
+      padding: 10px 20px; /* Adjust padding as needed */
+      box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+
+  .navbar-brand {
+      display: flex;
+      align-items: center; /* Align items vertically */
+  }
+
+  .navbar-brand img {
+      max-height: 40px; /* Adjust height as needed */
+      margin-right: 10px; /* Adjust spacing as needed */
+  }
+
+  .navbar-brand span {
+      font-size: 16px; /* Adjust font size as needed */
+  }
+
+  .navbar-nav {
+      display: flex;
+      align-items: center; /* Align items vertically */
+  }
+
+  .nav-item {
+      margin-left: 15px; /* Adjust spacing between navbar items */
+  }
+
+  .nav-link {
+      color: #fff;
+      text-decoration: none;
+      padding: 20px;
+font-size: 20px        ;}
+  input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+<div class="navbar-brand">
+  <img src="/Images/black white grow logo.png" alt="logo" onerror="this.src='https://dz8fbjd9gwp2s.cloudfront.net/resources/images/yourlogohere.jpg'">
+  <span>FINANCE ADVISOR</span>
+</div>
+
+<nav class="navbar-nav">
+    <a href="http://127.0.0.1:5502/index.html" class="nav-link">Home</a>
+  
+  <a href="/login" class="nav-link">Login</a>
+</nav>
+</header>
+
+  
+<body>
+  <div class="container">
+    <h1>Enquiry Form</h1>
+    <!-- Your enquiry form fields here -->
+
+    <h1>Select Risk Level:</h1>
+    <select id="Risk">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    
+    <h1>Select Interest Level:</h1>
+    <select id="Interest">
+      <option value="lte5">Less than or equal to 5%</option>
+      <option value="gt5">Greater than 5%</option>
+    </select>
+
+    <h1>Select Gender:</h1>
+    <select id="Gender">
+      <option value="Female">Female</option>
+      <option value="Male">Male</option>
+
+    <option value="Both">Both</option>
+    </select>
+
+    <button class="button" onclick="fetchData()">Get Suggestions</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script>
+    async function fetchData() {
+      const risk = document.getElementById('Risk').value;
+      const interest = document.getElementById('Interest').value.toLowerCase(); // Convert to lowercase
+      const gender = document.getElementById('Gender').value; // Get selected gender
+      
+      try {
+        // Fetch data from enquiry form (assuming you have an API to fetch form data)
+        const formDataResponse = await fetch('http://localhost:7000/api/enquiry');
+        const formData = await formDataResponse.json();
+
+        // Fetch data based on user selection
+        const response = await fetch(`http://localhost:8000/api/options?Risk=${risk}&interest=${interest}&Gender=${gender}`);
+        const data = await response.json();
+        
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = ''; // Clear existing content`
+
+        // Create and append table with fetched data
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const tbody = document.createElement('tbody');
+        const tr = document.createElement('tr');
+        const thNames = ['Name', 'Amount', 'Interest', 'Risk', 'Maturity', 'Min Age', 'Gender', 'Max Amount'];
+        
+        thNames.forEach(name => {
+          const th = document.createElement('th');
+          th.textContent = name;
+          tr.appendChild(th);
+        });
+        thead.appendChild(tr);
+        table.appendChild(thead);
+        
+        data.forEach(option => {
+          const tr = document.createElement('tr');
+          const tdValues = [
+            option.name,
+            option.amount,
+            `${option.interest}%`,
+            option.Risk,
+            `${option.Maturity} years`,
+            option.Min_Age,
+            option.Gender,
+            option.Max_Amount
+          ];
+          
+          tdValues.forEach(value => {
+            const td = document.createElement('td');
+            td.textContent = value;
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+        resultDiv.appendChild(table);
+
+        // Append form data to resultDiv
+        const formDataDiv = document.createElement('div');
+        formDataDiv.innerHTML = '<h2>Enquiry Form Data:</h2>'; // Assuming you have fetched form data
+        // Loop through form data and append to formDataDiv
+        for (const [key, value] of Object.entries(formData))
+        {
+          if (key !== '_id' && key !== '_v') {
+            formDataDiv.innerHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+            
+          }
+        }
+        resultDiv.appendChild(formDataDiv);
+
+        // Generate PDF
+        const element = document.querySelector('.container');
+        const options = {
+          margin: 1,
+          filename: 'suggestions.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+      
+        await html2pdf().from(element).set(options).save();
+      } catch (error) {
+        console.log('Error fetching data:', error);
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = 'Failed to fetch options'; // Display error message if fetching fails
+      }
+    }
+  </script>
+</body>
+</html>

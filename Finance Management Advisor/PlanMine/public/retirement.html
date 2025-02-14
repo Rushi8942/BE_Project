@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marriage Planning</title>
+  <style>
+    /* CSS styles for the marriage planning form */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    
+    .container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    .styled-table {
+      width: 80%;
+      margin: 0 auto; /* Center the table horizontally */
+      border-collapse: collapse;
+  }
+  
+  .styled-table th, .styled-table td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+  }
+  
+  .styled-table th {
+      background-color: #f2f2f2;
+      color: #333;
+  }
+    h2 {
+        margin-top: 0;
+    }
+    
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 8px;
+        box-sizing: border-box;
+        background-color: #000000;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #3b3c3b;
+    }
+    .center-heading {
+      text-align: center;
+      margin-bottom: 20px; /* Adjust margin as needed */
+  }
+    
+    .hidden {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Retirement Planning</h2>
+    <form id="retirement-form">
+      <label for="currentPrice">your monthly expected salary at the retirement:</label>
+      <input type="number" id="currentPrice" name="currentPrice" required />
+
+      <label for="yearsRemaining">Years Remaining for retirement:</label>
+      <input type="number" id="yearsRemaining" name="yearsRemaining" required />
+
+       <!-- Dropdown for selecting type of investment -->
+       <!-- Dropdown for selecting type of investment -->
+       <label for="investmentType">Type of Investment:</label>
+       <select id="investmentType" name="investmentType" required>
+         <option value="Retirement">Retirement Mutual Fund</option>
+         
+       </select>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="confirmation-message" class="hidden">
+      Thank you for your retirement planning details. Amount to invest: <span id="amountToInvest"></span>
+    </p>
+
+    <!-- Inflated price of goal -->
+    <div>
+      <h3>Annual Income Required Immediately After Retirement:</h3>
+      <p id="inflatedPrice"></p>
+    </div>
+
+    <!-- Monthly SIP amount -->
+    <div>
+      <h3>Monthly SIP Amount:</h3>
+      <p id="sipMessage"></p>
+    </div>
+
+    <!-- Compound Annual Growth Rate (CAGR) -->
+    <div>
+      <h3>Compound Annual Growth Rate (CAGR):</h3>
+      <p id="cagr"></p>
+    </div>
+  </div>
+  <div>
+    <h3 class="center-heading" >Fund Data:</h3>
+    <ul id="fundList"></ul>
+  </div>
+
+  <script src="retirement.js"></script>
+</body>
+</html>
+
+

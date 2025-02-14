@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry Details Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 500px;
+      margin-top: 800px;
+      padding: 60px 20px 80px; /* Adjust top padding to ensure the container appears below the navbar */
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #666;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: calc(100% - 16px);
+      margin-bottom: 10px;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5l8 8 8-8v2l-8 8-8-8V5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      background-size: 14px;
+      padding-right: 30px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    .hidden {
+      display: none;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0; /* Optional: Set a background color */
+      font-family: "Poppins", sans-serif; /* Add your preferred font family */
+  }
+
+  .box {
+      width: 400px; /* Adjust the width as needed */
+      padding: 20px;
+      background-color: #fff; /* Optional: Set a background color */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  }
+   a:hover {
+      text-decoration: underline;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
+  a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+  }
+
+  /* Styling for navbar */
+  .navbar {
+    background-color: #000;
+    color: #fff; /* Text color for navbar links */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999; /* Ensure navbar stays on top of other content */
+    display: flex;
+    justify-content: space-between; /* Align items to the left and right */
+    padding: 5px 20px; /* Adjust padding as needed */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  .navbar-brand span {
+    font-size: 13px; /* Adjust font size as needed */
+  }
+  
+  
+  .navbar-brand {
+      display: flex;
+      align-items: center; /* Align items vertically */
+  }
+
+  .navbar-brand img {
+      max-height: 40px; /* Adjust height as needed */
+      margin-right: 10px; /* Adjust spacing as needed */
+  }
+
+  
+  .navbar-nav {
+      display: flex;
+      align-items: center; /* Align items vertically */
+  }
+
+  .nav-item {
+      margin-left: 15px; /* Adjust spacing between navbar items */
+  }
+
+  .nav-link {
+      color: #fff;
+      text-decoration: none;
+      padding: 20px;
+font-size: 16px        ;}
+  input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 10px; /* Adjust padding of navbar links */
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+<div class="navbar-brand">
+  <img src="/Images/black white grow logo.png" alt="logo" onerror="this.src='https://dz8fbjd9gwp2s.cloudfront.net/resources/images/yourlogohere.jpg'">
+  <span>FINANCE ADVISOR</span>
+</div>
+
+<nav class="navbar-nav">
+    <a href="http://127.0.0.1:5502/index.html" class="nav-link">Home</a>
+  
+    <a
+    class="nav-link"
+    href="http://127.0.0.1:5502/PAGES/financial-calculator.html"
+    data-id="c4rur26wi"
+    >Financial Calculators</a
+  >
+</nav>
+</header>
+
+
+
+<body>
+  <div class="container">
+    <h2>Enquiry Details</h2>
+    <form action="/post" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="salary">Salary(monthly):</label>
+      <input type="number" id="salary" name="salary" required>
+
+      <label for="retireage">Retirement Age:</label>
+      <input type="number" id="retireage" name="retireage" required>
+
+      <label for="childrens">Children's count (If Any):</label>
+      <input type="number" id="childrens" name="childrens" required>
+
+      <label for="childexpense">Children's Expenses:</label>
+      <input type="number" id="childexpense" name="childexpense" required>
+
+      <label for="parents">Parents:</label>
+      <select id="parents" name="parents" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label for="parexpenses">Parents Expenses Monthly (including Health):</label>
+      <input type="number" id="parexpenses" name="parexpenses" required>
+
+      <label for="emergencyexpenses">Other Emergency Expenses of Family (monthly) (including Health):</label>
+      <input type="number" id="emergencyexpenses" name="emergencyexpenses" required>
+
+      <label for="loan">Any Loan:</label>
+      <select id="loan" name="loan" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label for="loanamount">Monthly installment of Loan:</label>
+      <input type="number" id="loanamount" name="loanamount" required>
+
+      <label for="loaninterest">Loan Interest Rate Annually:</label>
+      <input type="number" id="loaninterest" name="loaninterest" required>
+
+      <label for="expenditure">Expenditure (monthly):</label>
+      <input type="number" id="expenditure" name="expenditure" required>
+
+      <button type="submit">Next</button>
+    </form>
+  </div>
+</body>
+</html>

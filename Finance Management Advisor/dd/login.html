@@ -1,0 +1,108 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  p {
+    margin: 5px 0;
+    color: red;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup/Login Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="signup-form">
+        If You Don't Have An Account You'll Have To
+        <h2>Signup</h2>
+        <input type="text" id="signup-username" placeholder="Username" />
+        <input type="password" id="signup-password" placeholder="Password" />
+        <button onclick="signup()">Signup</button>
+        <p id="signup-message"></p>
+      </div>
+      <div id="login-form">
+        If You an existing user is signed then
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username" />
+        <input type="password" id="login-password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <p id="login-message"></p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<script>
+  function signup() {
+    var username = document.getElementById("signup-username").value;
+    var password = document.getElementById("signup-password").value;
+
+    // Your signup logic here, for example, an AJAX request
+
+    // Example response handling
+    if (username && password) {
+      document.getElementById("signup-message").innerHTML =
+        "Signup successful!";
+    } else {
+      document.getElementById("signup-message").innerHTML =
+        "Please fill in all fields.";
+    }
+  }
+
+  function login() {
+    var username = document.getElementById("login-username").value;
+    var password = document.getElementById("login-password").value;
+
+    // Your login logic here, for example, an AJAX request
+
+    // Example response handling
+    if (username && password) {
+      document.getElementById("login-message").innerHTML = "Login successful!";
+    } else {
+      document.getElementById("login-message").innerHTML =
+        "Please fill in all fields.";
+    }
+  }
+</script>

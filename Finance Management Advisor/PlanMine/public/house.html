@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Buying Planning</title>
+  <style>
+    /* CSS styles for the house buying planning form */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding-bottom: 20px;
+      padding-right: 20px;
+      padding-left: 20px;
+  
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+    
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #666;
+    }
+    
+    input[type="number"],
+    select {
+      width: calc(100% - 16px);
+      margin-bottom: 10px;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color:  #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #333;
+    }
+    
+    .center-heading {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    .styled-table th, .styled-table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    
+    .styled-table th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>House Buying Planning</h2>
+    <form id="house-buying-form">
+      <label for="currentPrice">Current Price of House:</label>
+      <input type="number" id="currentPrice" name="currentPrice" required />
+
+      <label for="yearsRemaining">Years Remaining for Buying:</label>
+      <input type="number" id="yearsRemaining" name="yearsRemaining" required />
+
+      <!-- Dropdown for selecting type of investment -->
+      <label for="investmentType">Type of Investment:</label>
+      <select id="investmentType" name="investmentType" required>
+        <option value="Debt">Debt Mutual Fund</option>
+        <option value="Equity">Equity Mutual Fund</option>
+        <option value="Hybrid">Hybrid Mutual Fund</option>
+        <option value="Index">Index Mutual Fund</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+    <p id="confirmation-message" class="hidden">
+      Thank you for your house buying planning details. Amount to invest: <span id="amountToInvest"></span>
+      <div>
+        <h3>Required SIP Amount:</h3>
+        <p id="requiredSIPMessage" class="hidden"></p>
+      </div>
+    </p>
+
+    <!-- Inflated price of goal -->
+    <div>
+      <h3>Inflated Price of Goal:</h3>
+      <p id="inflatedPrice"></p>
+    </div>
+    
+    <!-- Monthly SIP amount -->
+    <div>
+      <h3>Monthly SIP Amount:</h3>
+      <p id="sipMessage"></p>
+    </div>
+
+    <!-- Compound Annual Growth Rate (CAGR) -->
+    <div>
+      <h3>Compound Annual Growth Rate (CAGR):</h3>
+      <p id="cagr"></p>
+    </div>
+    
+ 
+  </div>
+  <h3 class="center-heading">Fund Data:</h3>
+  <table class="styled-table" id="fundList"></table>
+
+  <script src="house.js"></script>
+</body>
+</html>

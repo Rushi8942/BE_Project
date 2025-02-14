@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Plan</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to external CSS file -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #2c7cd7;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #3b3c3b;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .investbuttons {
+            width: 70%;
+            margin: auto;
+        }
+
+        #investheading {
+            height: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            width: 600px;
+            margin: 150px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling for navbar */
+        .navbar {
+            background-color: #000;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            max-height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand span {
+            font-size: 16px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            margin-left: 15px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="navbar-brand">
+        <img src="/Images/black white grow logo.png" alt="logo" onerror="this.src='https://dz8fbjd9gwp2s.cloudfront.net/resources/images/yourlogohere.jpg'">
+        <span>FINANCE ADVISOR</span>
+    </div>
+
+    <nav class="navbar-nav">
+        <a href="http://127.0.0.1:5502/index.html" class="nav-link">Home</a>
+        <a
+    class="nav-link"
+    href="http://127.0.0.1:5502/PAGES/financial-calculator.html"
+    data-id="c4rur26wi"
+    >Financial Calculators</a
+  >
+    </nav>
+</header>
+
+<div class="box">
+    <section class="investbuttons">
+        <h2 id="investheading">Select your Goal</h2>
+
+        <div id="investbuttons">
+            <button onclick="location.href = 'public/house.html';">Buying House</button>
+            <br />
+
+            <button onclick="location.href = 'public/education.html';">Education</button>
+            <br />
+
+            <button onclick="location.href = 'public/marriage.html';">Marriage Planning</button>
+            <br />
+
+            <button onclick="location.href = 'public/retirement.html';">Retirement Planning</button>
+            <br />
+
+            <button onclick="location.href = 'public/emergency.html';">Building an Emergency Fund</button>
+            <br />
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
